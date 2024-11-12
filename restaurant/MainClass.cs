@@ -10,7 +10,7 @@ namespace restaurant
 {
     internal class MainClass
     {
-        public static readonly string con_string= "Data Source=AMNAH; Initial Catalog=restaurant; Persist Security Info=True; User ID=sa; Password=123";
+        public static readonly string con_string = "Data Source=AMNAH; Initial Catalog=restaurant; Integrated Security=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         //Method to check user validation
