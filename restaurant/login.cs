@@ -35,21 +35,39 @@ namespace restaurant
     
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPass.Text))
+            if (MainClass.isValidUser(txtUser.Text, txtPass.Text) == false)
             {
-                ToolTip toolTip1 = new ToolTip();
-                toolTip1.ToolTipTitle = "Invalid Entry";
-                toolTip1.IsBalloon = true; // Makes it look like a speech bubble
-                toolTip1.Show("Invalid username entered", txtUser, 0, -50, 2000); // Shows above the username textbox
-
+                guna2MessageDialog1.Show("Invalid username or password!");
+                return;
+            
             }
-
+            else
+            {
+                this.Hide();    
+                frmMain frm = new frmMain();
+                frm.Show();
+            }
 
         } 
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

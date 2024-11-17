@@ -17,7 +17,7 @@ namespace restaurant
 
         public static Boolean isValidUser(string user, string pass)
         {
-            bool isValid= false;
+            bool isValid = false;
 
             string qry = "Select * from users where username = '" + user + "' and upass = '" + pass + "' ";
             SqlCommand cmd = new SqlCommand(qry, con);
@@ -25,12 +25,25 @@ namespace restaurant
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
 
-            if (dt.Rows.Count  > 0)
+            if (dt.Rows.Count > 0)
             {
-                isValid = true; 
+                isValid = true;
+                USER = dt.Rows[0]["uName"].ToString();
             }
 
             return isValid;
         }
+
+        //create property for username
+
+        public static string user;
+
+        public static string USER
+        {
+            get { return user; }
+            private set { user = value; }
+        }
+    
     }
+
 }

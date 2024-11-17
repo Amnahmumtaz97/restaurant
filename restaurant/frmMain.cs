@@ -17,6 +17,18 @@ namespace restaurant
             InitializeComponent();
         }
 
+        //Method to add Controls in Main form
+
+        public void AddControls(Form f)
+        {
+            ControlsPanel.Controls.Clear();
+            f.Dock = DockStyle.Fill;
+            f.TopLevel = false;
+            ControlsPanel.Controls.Add(f);
+            f.Show();
+        }
+
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -25,6 +37,27 @@ namespace restaurant
         private void guna2Panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = MainClass.USER;
+
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmHome());
         }
     }
 }
